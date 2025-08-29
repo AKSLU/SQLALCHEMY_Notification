@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Добавить уведомление</title>
+    <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    form {
+        background-color: #ffffff;
+        padding: 30px 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        max-width: 400px;
+        width: 100%;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+        color: #555;
+    }
+
+    textarea,
+    input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    textarea:focus,
+    input[type="text"]:focus {
+        border-color: #007BFF;
+        outline: none;
+    }
+
+    button {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background-color 0.3s;
+        width: 100%;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    p {
+        margin-top: 20px;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <h1>Добавить уведомление</h1>
+    <form method="post">
+        <label>Текст уведомления:</label><br>
+        <textarea name="text" required></textarea><br>
+        <label>Автор:</label><br>
+        <input type="text" name="author" required><br><br>
+        <button type="submit">Создать</button>
+    </form>
+    <p><a href="{{ url_for('user') }}">Перейти к уведомлениям</a></p>
+</body>
+</html>
+
+

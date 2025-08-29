@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Уведомления</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .notification {
+            background-color: #fff;
+            border-left: 5px solid #007BFF;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .notification p {
+            margin: 8px 0;
+            color: #444;
+        }
+
+        .notification strong {
+            color: #007BFF;
+        }
+
+        .no-notifications {
+            color: #888;
+            font-style: italic;
+        }
+
+        p a {
+            margin-top: 30px;
+            display: inline-block;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Уведомления</h1>
+    {% if notifications %}
+        {% for note in notifications %}
+            <div class="notification">
+                <p><strong>{{ note.author }}</strong> — {{ note.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                <p>{{ note.text }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-notifications">Нет уведомлений.</p>
+    {% endif %}
+    <p><a href="{{ url_for('admin') }}">Назад в админку</a></p>
+</body>
+</html>
+
+
